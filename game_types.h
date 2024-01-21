@@ -1,0 +1,7 @@
+#ifndef GAME_TYPES_H
+#define GAME_TYPES_H
+
+int DSCREEN_WIDTH = 1280;
+int DSCREEN_HEIGHT = 720;
+
+#endif // GAME_TYPES_H

@@ -13,15 +13,15 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(glfw3 REQUIRED CONFIG)
 find_package(glm REQUIRED)
-
+add_library(StaticGLEW STATIC glew/src/glew.c
+    )
+include_directories(${PROJECT_NAME} PRIVATE glew/include)
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
 )
-
-
 
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -33,6 +33,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         renderer/camera.h renderer/camera.cpp
         renderer/objects/cone.cpp renderer/objects/cone.h renderer/objects/cube.cpp renderer/objects/cube.h renderer/objects/cylinder.cpp renderer/objects/cylinder.h renderer/objects/OBJ_Loader.h   renderer/objects/sphere.cpp renderer/objects/sphere.h renderer/objects/trimesh.cpp renderer/objects/trimesh.h
         renderer/scenedata.h
+        game_types.h
+        renderer/SceneData.h
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET IK APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
